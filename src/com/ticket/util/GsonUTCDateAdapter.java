@@ -1,4 +1,4 @@
-package com.baltz.util;
+package com.ticket.util;
 
 
 import java.lang.reflect.Type;

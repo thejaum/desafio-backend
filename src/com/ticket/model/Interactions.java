@@ -1,4 +1,4 @@
-package com.baltz.model;
+package com.ticket.model;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -32,5 +32,13 @@ public class Interactions {
 	}
 	public void setSender(String sender) {
 		Sender = sender;
+	}
+	
+	public boolean checkMessage(String regex){
+		if(this.getMessage().toUpperCase().contains(regex.toUpperCase()) && this.getSender().equals("Customer")){
+			return true;
+		}else{
+			return false;
+		}
 	}
 }

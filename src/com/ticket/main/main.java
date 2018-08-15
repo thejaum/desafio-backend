@@ -1,4 +1,4 @@
-package com.baltz.main;
+package com.ticket.main;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -10,9 +10,8 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Date;
 
-import com.baltz.model.Interactions;
-import com.baltz.model.Ticket;
-import com.baltz.util.GsonUTCDateAdapter;
+import com.ticket.util.GsonUTCDateAdapter;
+import com.ticket.model.Ticket;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;

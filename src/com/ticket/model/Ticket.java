@@ -1,8 +1,12 @@
-package com.baltz.model;
+package com.ticket.model;
 
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
-import com.baltz.model.Interactions;
+import java.util.concurrent.TimeUnit;
+
+import com.ticket.model.Interactions;
 
 public class Ticket {
 	private int TicketID;
@@ -13,7 +17,9 @@ public class Ticket {
 	private Date DateCreate;
 	private Date DateUpdate;
 	private ArrayList<Interactions> Interactions = new ArrayList<Interactions>();
-	 
+	private int Score;
+	private String Priority;
+	
 	public ArrayList<Interactions> getInteractions() {
 		return Interactions;
 	}
@@ -56,4 +62,40 @@ public class Ticket {
 	public void setDateUpdate(Date dateUpdate) {
 		DateUpdate = dateUpdate;
 	}
+	public Date getDateCreate() {
+		return DateCreate;
+	}
+	public void setDateCreate(Date dateCreate) {
+		DateCreate = dateCreate;
+	}
+	public int getScore() {
+		return Score;
+	}
+	public void setScore(int score) {
+		Score = score;
+	}
+	public String getPriority() {
+		return Priority;
+	}
+	public void setPriority(String priority) {
+		Priority = priority;
+	}
+	
+	public void addScore(int score) {
+		this.setScore(this.getScore() + score);
+	}
+	
+	public void subScore(int score) {
+		this.setScore(this.getScore() - score);
+	}
+	
+	public long diffDays(){
+		Calendar d1 = Calendar.getInstance();
+		Calendar d2 = Calendar.getInstance();
+		d1.setTime(this.getDateCreate());
+		d2.setTime(this.getDateUpdate());
+		long daysBetween = ChronoUnit.DAYS.between(d1.toInstant(), d2.toInstant());
+		return daysBetween;
+	}
+	
 }
